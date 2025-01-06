@@ -49,10 +49,15 @@ app.use(express.urlencoded({ extended: true }));
 async function main() {
     // create a connection to our MySQL database
     const connection = await createConnection({
-        'host': process.env.DB_HOST,
-        'user': process.env.DB_USER,
-        'database': process.env.DB_NAME,
-        'password': process.env.DB_PASSWORD
+        // 'host': process.env.DB_HOST,
+        // 'user': process.env.DB_USER,
+        // 'database': process.env.DB_NAME,
+        // 'password': process.env.DB_PASSWORD
+        'host': 'localhost',
+        'user': 'root',
+        'password': '',
+        'database': 'crm',
+        'port': 3306
     });
 
     app.get('/', function (req, res) {
