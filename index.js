@@ -39,9 +39,12 @@ app.set('view engine', 'hbs');
 
 // setup form processing for Express
 // VERY IMPORTANT!
-app.use(urlencoded({
-    extended: false // set to false for fast form processing but without advanced features
-}))
+    // app.use(urlencoded({
+    //     extended: false // set to false for fast form processing but without advanced features
+    // }))
+// per GPT
+// Middleware to parse URL-encoded data
+app.use(express.urlencoded({ extended: true }));
 
 async function main() {
     // create a connection to our MySQL database
