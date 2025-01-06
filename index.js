@@ -1,3 +1,4 @@
+//  import express, { urlencoded } from 'express';
 const express = require('express');
 const hbs = require('hbs');
 const waxOn = require('wax-on');
@@ -13,9 +14,17 @@ waxOn.on(hbs.handlebars);
 waxOn.setLayoutPath("./views/layouts");
 
 // Include the 188 handlebar helpers
-const helpers = require('handlebars-helpers')({
-  handlebars: hbs.handlebars
-});
+// const helpers = require('handlebars-helpers')({
+//   handlebars: hbs.handlebars
+// });
+// per GPT
+// const helpers = require('handlebars-helpers');
+// per GPT
+    const Handlebars = require('handlebars');
+    const helpers = require('handlebars-helpers');
+
+    // Register helpers with Handlebars
+    helpers(Handlebars);
 
 const app = express();
 
@@ -24,7 +33,7 @@ app.set('view engine', 'hbs');
 
 // setup form processing for Express
 // VERY IMPORTANT!
-app.use(express.urlencoded({
+app.use(urlencoded({
     extended: false // set to false for fast form processing but without advanced features
 }))
 
