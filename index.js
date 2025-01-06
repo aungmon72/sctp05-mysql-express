@@ -2,6 +2,11 @@ const express = require('express');
 const hbs = require('hbs');
 const waxOn = require('wax-on');
 const { createConnection } = require('mysql2/promise');
+// const express = require('express');
+// const hbs = require('hbs');
+// const waxOn = require('wax-on');
+// const { createConnection } = require('mysql2/promise');
+
 require('dotenv').config();
 
 waxOn.on(hbs.handlebars);
