@@ -24,7 +24,13 @@ waxOn.setLayoutPath("./views/layouts");
     const helpers = require('handlebars-helpers');
 
     // Register helpers with Handlebars
-    helpers(Handlebars);
+        //  helpers(Handlebars);
+
+    // Optionally, register individual helpers with Handlebars
+    Object.keys(helpers).forEach(helper => {
+        Handlebars.registerHelper(helper, helpers[helper]);
+    });
+    
 
 const app = express();
 
